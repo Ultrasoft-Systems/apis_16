@@ -1,15 +1,15 @@
 /** @odoo-module **/
 
-import { useOwnDebugContext } from "@web/core/debug/debug_context";
-import { DebugMenu } from "@web/core/debug/debug_menu";
-import { localization } from "@web/core/l10n/localization";
-import { MainComponentsContainer } from "@web/core/main_components_container";
-import { registry } from "@web/core/registry";
-import { useBus, useService } from "@web/core/utils/hooks";
-import { ActionContainer } from "./actions/action_container";
-import { NavBar } from "./navbar/navbar";
+import {useOwnDebugContext} from "@web/core/debug/debug_context";
+import {DebugMenu} from "@web/core/debug/debug_menu";
+import {localization} from "@web/core/l10n/localization";
+import {MainComponentsContainer} from "@web/core/main_components_container";
+import {registry} from "@web/core/registry";
+import {useBus, useService} from "@web/core/utils/hooks";
+import {ActionContainer} from "./actions/action_container";
+import {NavBar} from "./navbar/navbar";
 
-import { Component, onMounted, useExternalListener, useState } from "@odoo/owl";
+import {Component, onMounted, useExternalListener, useState} from "@odoo/owl";
 
 export class WebClient extends Component {
     setup() {
@@ -19,23 +19,23 @@ export class WebClient extends Component {
         this.router = useService("router");
         this.user = useService("user");
         useService("legacy_service_provider");
-        useOwnDebugContext({ categories: ["default"] });
+        useOwnDebugContext({categories: ["default"]});
         if (this.env.debug) {
             registry.category("systray").add(
                 "web.debug_mode_menu",
                 {
                     Component: DebugMenu,
                 },
-                { sequence: 100 }
+                {sequence: 100}
             );
         }
         this.localization = localization;
         this.state = useState({
             fullscreen: false,
         });
-        this.title.setParts({ zopenerp: "Odoo" }); // zopenerp is easy to grep
+        this.title.setParts({zopenerp: "APIS"}); // zopenerp is easy to grep
         useBus(this.env.bus, "ROUTE_CHANGE", this.loadRouterState);
-        useBus(this.env.bus, "ACTION_MANAGER:UI-UPDATED", ({ detail: mode }) => {
+        useBus(this.env.bus, "ACTION_MANAGER:UI-UPDATED", ({detail: mode}) => {
             if (mode !== "new") {
                 this.state.fullscreen = mode === "fullscreen";
             }
@@ -46,7 +46,7 @@ export class WebClient extends Component {
             // order to initialize themselves:
             this.env.bus.trigger("WEB_CLIENT_READY");
         });
-        useExternalListener(window, "click", this.onGlobalClick, { capture: true });
+        useExternalListener(window, "click", this.onGlobalClick, {capture: true});
     }
 
     async loadRouterState() {
@@ -58,7 +58,7 @@ export class WebClient extends Component {
             const menu = this.menuService.getAll().find((m) => menuId === m.id);
             const actionId = menu && menu.actionID;
             if (actionId) {
-                await this.actionService.doAction(actionId, { clearBreadcrumbs: true });
+                await this.actionService.doAction(actionId, {clearBreadcrumbs: true});
                 stateLoaded = true;
             }
         }
@@ -109,6 +109,7 @@ export class WebClient extends Component {
         }
     }
 }
+
 WebClient.components = {
     ActionContainer,
     NavBar,

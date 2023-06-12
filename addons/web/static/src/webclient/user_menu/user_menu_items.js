@@ -1,11 +1,11 @@
 /** @odoo-module **/
 
-import { Component, markup } from "@odoo/owl";
-import { isMacOS } from "@web/core/browser/feature_detection";
-import { escape } from "@web/core/utils/strings";
-import { session } from "@web/session";
-import { browser } from "../../core/browser/browser";
-import { registry } from "../../core/registry";
+import {Component, markup} from "@odoo/owl";
+import {isMacOS} from "@web/core/browser/feature_detection";
+import {escape} from "@web/core/utils/strings";
+import {session} from "@web/session";
+import {browser} from "../../core/browser/browser";
+import {registry} from "../../core/registry";
 
 function documentationItem(env) {
     const documentationURL = "https://www.odoo.com/documentation/16.0";
@@ -40,6 +40,7 @@ class ShortcutsFooterComponent extends Component {
         this.runShortcutKey = isMacOS() ? "CONTROL" : "ALT";
     }
 }
+
 ShortcutsFooterComponent.template = "web.UserMenu.ShortcutsFooterComponent";
 
 function shortCutsItem(env) {
@@ -55,7 +56,7 @@ function shortCutsItem(env) {
             </div>`
         ),
         callback: () => {
-            env.services.command.openMainPalette({ FooterComponent: ShortcutsFooterComponent });
+            env.services.command.openMainPalette({FooterComponent: ShortcutsFooterComponent});
         },
         sequence: 30,
     };
@@ -117,10 +118,10 @@ function logOutItem(env) {
 
 registry
     .category("user_menuitems")
-    .add("documentation", documentationItem)
-    .add("support", supportItem)
+    // .add("documentation", documentationItem)
+    // .add("support", supportItem)
     .add("shortcuts", shortCutsItem)
     .add("separator", separator)
     .add("profile", preferencesItem)
-    .add("odoo_account", odooAccountItem)
+    // .add("odoo_account", odooAccountItem)
     .add("log_out", logOutItem);

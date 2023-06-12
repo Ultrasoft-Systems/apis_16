@@ -47,3 +47,7 @@ package.json
 /man/
 /share/
 /src/
+/custom-addons/
+/apis_data/
+/venv/
+*.conf
