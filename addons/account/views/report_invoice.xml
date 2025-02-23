@@ -91,6 +91,7 @@
                         <table class="table table-sm o_main_table table-borderless" name="invoice_line_table">
                             <thead>
                                 <tr>
+                                    <th name="th_number" class="text-start"><span>#</span></th>
                                     <th name="th_description" class="text-start"><span>Description</span></th>
                                     <th name="th_quantity" class="text-end"><span>Quantity</span></th>
                                     <th name="th_priceunit" t-attf-class="text-end {{ 'd-none d-md-table-cell' if report_type == 'html' else '' }}"><span>Unit Price</span></th>
@@ -107,6 +108,7 @@
                             <tbody class="invoice_tbody">
                                 <t t-set="current_subtotal" t-value="0"/>
                                 <t t-set="lines" t-value="o.invoice_line_ids.sorted(key=lambda l: (-l.sequence, l.date, l.move_name, -l.id), reverse=True)"/>
+                                <t t-set="index" t-value="1"/>
 
                                 <t t-foreach="lines" t-as="line">
                                     <t t-set="current_subtotal" t-value="current_subtotal + line.price_subtotal" groups="account.group_show_line_subtotals_tax_excluded"/>
@@ -114,6 +116,7 @@
 
                                     <tr t-att-class="'bg-200 fw-bold o_line_section' if line.display_type == 'line_section' else 'fst-italic o_line_note' if line.display_type == 'line_note' else ''">
                                         <t t-if="line.display_type == 'product'" name="account_invoice_line_accountable">
+                                            <td class="text-start"><span t-esc="index"/></td>
                                             <td name="account_invoice_line_name"><span t-field="line.name" t-options="{'widget': 'text'}"/></td>
                                             <td class="text-end">
                                                 <span t-field="line.quantity"/>
@@ -158,6 +161,7 @@
                                             </td>
                                         </tr>
                                     </t>
+                                    <t t-set="index" t-value="index + 1"/>
                                 </t>
                             </tbody>
                         </table>
