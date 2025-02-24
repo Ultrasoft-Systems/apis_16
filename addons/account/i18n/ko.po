@@ -3278,9 +3278,9 @@ msgstr "이전"
 #. module: account
 #: model_terms:ir.ui.view,arch_db:account.account_default_terms_and_conditions
 msgid ""
-"Below text serves as a suggestion and doesn’t engage Odoo S.A. "
+"Below text serves as a suggestion and doesn’t engage APIS Suit "
 "responsibility."
-msgstr "아래의 내용은 참고용으로만 제시되는 내용이며 Odoo S.A.는 해당 내용에 대한 책임을 지지 않습니다."
+msgstr "아래의 내용은 참고용으로만 제시되는 내용이며 APIS Suit는 해당 내용에 대한 책임을 지지 않습니다."
 
 #. module: account
 #: model:ir.model.fields,field_description:account.field_account_setup_bank_manual_config__bank_bic

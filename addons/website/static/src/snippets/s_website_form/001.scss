@@ -69,7 +69,7 @@
     // anymore in BS5.
     .form-control-file.is-invalid {
         // Note: BS5 use form-control on file inputs now, but this is kept as
-        // compatibility for now (also at the time this was done, Odoo 16.0 uses
+        // compatibility for now (also at the time this was done, APIS Suit uses
         // BS5 but not yet(?) form-control on file inputs).
         padding-left: 3px;
         border-left: 3px solid $form-feedback-invalid-color;

@@ -14827,9 +14827,9 @@ msgstr "Belize"
 #. module: base
 #: model_terms:res.company,invoice_terms_html:base.main_company
 msgid ""
-"Below text serves as a suggestion and doesn’t engage Odoo S.A. "
+"Below text serves as a suggestion and doesn’t engage APIS Suit "
 "responsibility."
-msgstr "Aşağıdaki metin bir öneridir ve Odoo S.A.'yı sorumlu kılmaz."
+msgstr "Aşağıdaki metin bir öneridir ve APIS Suit'yı sorumlu kılmaz."
 
 #. module: base
 #: model:res.country,name:base.bj

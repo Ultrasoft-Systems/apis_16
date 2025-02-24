@@ -97,6 +97,42 @@
             </td>
         </template>
 
+        <template id="report_simple_label_3x4">
+            <t t-set="barcode_size" t-value="'width:25mm;height:4mm'"/>  <!-- Adjusted for 3x4 label grid -->
+            <t t-set="table_style" t-value="'width:40mm;height:30mm;' + table_style"/> <!-- Adjusted size for 3x4 layout -->
+            <td t-att-style="make_invisible and 'visibility:hidden;'">
+                <div class="o_label_full o_label_small_text" t-att-style="table_style">
+                    <div class="o_label_name">
+                        <strong t-field="product.display_name"/>
+                    </div>
+                    <t t-if="price_included">
+                        <div class="o_label_left_column">
+                            <span class="text-nowrap" t-field="product.default_code"/>
+                        </div>
+                        <div class="o_label_price_medium text-end">
+                            <t t-if="product.is_product_variant">
+                                <strong t-field="product.lst_price" t-options="{'widget': 'monetary', 'label_price': True}"/>
+                            </t>
+                            <t t-else="">
+                                <strong t-field="product.list_price" t-options="{'widget': 'monetary', 'label_price': True}"/>
+                            </t>
+                        </div>
+                    </t>
+                    <t t-else="">
+                        <div class="o_label_left_column o_label_full_with">
+                            <span class="text-nowrap" t-field="product.default_code"/>
+                        </div>
+                    </t>
+                    <div class="text-center o_label_small_barcode">
+                        <t t-if="barcode">
+                            <div t-out="barcode" style="padding:0" t-options="{'widget': 'barcode', 'symbology': 'auto', 'img_style': barcode_size}"/>
+                            <span class="text-center" t-out="barcode"/>
+                        </t>
+                    </div>
+                </div>
+            </td>
+        </template>
+
         <template id="report_simple_label_dymo">
             <div class="o_label_sheet o_label_dymo" t-att-style="padding_page">
                 <div class="o_label_full" t-att-style="table_style">
@@ -145,6 +181,10 @@
                     <t t-if="columns == 4 and rows == 12">
                         <t t-set="padding_page" t-value="'padding: 20mm 8mm'"/>
                         <t t-set="report_to_call" t-value="'product.report_simple_label4x12'"/>
+                    </t>
+                    <t t-if="columns == 3 and rows == 4">
+                        <t t-set="padding_page" t-value="'padding: 14mm 3mm'"/>
+                        <t t-set="report_to_call" t-value="'product.report_simple_label3x4'"/>
                     </t>
                     <t t-foreach="range(page_numbers)" t-as="page">
                         <div class="o_label_sheet" t-att-style="padding_page">

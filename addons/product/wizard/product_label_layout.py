@@ -15,7 +15,12 @@ class ProductLabelLayout(models.TransientModel):
         ('2x7xprice', '2 x 7 with price'),
         ('4x7xprice', '4 x 7 with price'),
         ('4x12', '4 x 12'),
-        ('4x12xprice', '4 x 12 with price')], string="Format", default='2x7xprice', required=True)
+        ('4x12xprice', '4 x 12 with price'),
+        #########################################
+        #   CUSTOM PRODUCT LABELS TO BE ADDED   #
+        #########################################
+        ('3x4xprice', '3 x 4 with price'),
+    ], string="Format", default='2x7xprice', required=True)
     custom_quantity = fields.Integer('Quantity', default=1, required=True)
     product_ids = fields.Many2many('product.product')
     product_tmpl_ids = fields.Many2many('product.template')

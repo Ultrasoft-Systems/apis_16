@@ -37,7 +37,7 @@ PYTHON_TRANSLATION_COMMENT = 'odoo-python'
 # translation used for javascript code in web client
 JAVASCRIPT_TRANSLATION_COMMENT = 'odoo-javascript'
 # used to notify web client that these translations should be loaded in the UI
-# deprecated comment since Odoo 16.0
+# deprecated comment since APIS Suit
 WEB_TRANSLATION_COMMENT = "openerp-web"
 
 SKIPPED_ELEMENTS = ('script', 'style', 'title')
