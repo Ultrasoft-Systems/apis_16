@@ -1,0 +1,13 @@
+/* Example: Change the background color of the navbar */
+.o_navbar {
+    background-color: #123456; /* Custom color */
+}
+
+/* Example: Change the font of the menu */
+.o_menu_brand {
+    font-family: 'Arial', sans-serif;
+}
+
+.oi oi-apps {
+    display: none;
+}

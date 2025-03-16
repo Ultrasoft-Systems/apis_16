@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <record id="res_config_settings_view_form" model="ir.ui.view">
+        <field name="name">res.config.settings.view.form.inherit.base.setup</field>
+        <field name="model">res.config.settings</field>
+        <field name="priority" eval="0"/>
+        <field name="inherit_id" ref="base.res_config_settings_view_form"/>
+        <field name="arch" type="xml">
+            <!-- Modify 'About' Section -->
+            <xpath expr="//div[@id='about']" position="replace">
+                <div id="about">
+                    <h2>About</h2>
+                    <div class="row mt16 o_settings_container" name="about_setting_container">
+                        <!-- Your custom content here -->
+                        <div class="col-12 col-lg-6 o_setting_box" id="appstore">
+                            <div class="d-flex">
+                                <div class="o_setting_right_pane">
+                                    <!-- Update or Replace links as needed -->
+                                    <a class="d-block mx-auto" href="https://ultrasoft.mk" target="blank">
+                                        <img alt="Visit Our Website" class="d-block mx-auto img img-fluid" src="/custom_branding/static/src/img/google_play.png"/>
+                                    </a>
+                                </div>
+                                <div>
+                                    <a class="d-block mx-auto" href="https://ultrasoft.mk" target="blank">
+                                        <img alt="Visit Our iOS App" class="d-block mx-auto img img-fluid" src="/custom_branding/static/src/img/app_store.png"/>
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+                        <widget name="res_config_edition"/>
+                    </div>
+                </div>
+            </xpath>
+        </field>
+    </record>
+</odoo>
