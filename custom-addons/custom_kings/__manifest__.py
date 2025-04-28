@@ -1,0 +1,22 @@
+{
+    "name": "Custom Kings Module",
+    "version": "1.0",
+    "summary": "Custom module for APIS client",
+    "description": "Adds custom styles to the APIS user interface.",
+    "category": "Custom",
+    'website': 'https://ultrasoft.mk',
+    'author': 'Ultrasoft Systems',
+    'depends': ['account', 'base', 'product'],
+    'data': [
+        'security/ir.model.access.csv',
+        'views/custom_report_invoice.xml',
+        'views/product_label_views.xml',
+        'reports/custom_product_labels.xml',
+        'reports/custom_product_labels_template.xml',
+        'wizard/product_label_wizard_view.xml',
+    ],
+    "installable": True,
+    'application': False,
+    'auto_install': False,
+    'license': 'LGPL-3',
+}
